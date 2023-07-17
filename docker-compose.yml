@@ -24,6 +24,7 @@ services:
   backend:
     build: ./backend
     container_name: backend
+    image: paulmuri/yolo-backend:v1.0.0
     ports:
       - 5001:5001
     depends_on:
@@ -33,6 +34,7 @@ services:
   frontend:
     build: ./client
     container_name: frontend
+    image: paulmuri/yolo-frontend:v1.0.0
     ports:
       - 3000:3000
     volumes:
