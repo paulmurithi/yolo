@@ -1,6 +1,6 @@
 FROM node:16.20.1-alpine3.17
 
-WORKDIR /client
+WORKDIR /backend
 
 COPY package*.json ./
 
