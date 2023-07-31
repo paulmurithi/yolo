@@ -1,2 +1,6 @@
 ---
-# tasks file for roles/frontend
+- name: Pull image from Docker Hub
+  shell: docker pull paulmuri/yolo-frontend:v1.0.0
+
+- name: Run Client Container
+  shell: docker run -d --name yolo_frontend -p 3000:3000 paulmuri/yolo-frontend:v1.0.0
