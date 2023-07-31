@@ -63,6 +63,18 @@ Vagrant.configure("2") do |config|
     # Customize the amount of memory on the VM:
     vb.memory = "1024"
   end
+
+  config.vm.network "private_network", type: "dhcp"
+  config.vm.network "forwarded_port", guest: 3000, host: 3000 #frontend
+  config.vm.network "forwarded_port", guest: 5000, host: 5000 #backend
+  config.vm.network "forwarded_port", guest: 27017, host: 27017 #Mongo
+
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.compatibility_mode = "2.0"
+    ansible.config_file = "ansible.cfg"
+    ansible.playbook = "playbook.yaml"
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
