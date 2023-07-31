@@ -1,2 +1,6 @@
 ---
-# tasks file for roles/mongo
+- name: Create volume
+  shell: docker volume create mongodb
+
+- name: Run mongo container
+  shell: docker run -d --name mongo_container -p 27017:27017 -v mongodb:/data/db mongo:latest mongod --bind_ip_all
