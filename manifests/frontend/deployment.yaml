@@ -15,11 +15,6 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: paulmuri/yolo-frontend:v1.0.1
+          image: paulmuri/yolo-frontend:v1.0.0
           ports:
             - containerPort: 3000
-          env:
-            - name: REACT_APP_API_URL
-              value: "http://backend-service:80/api/products"
-            - name: REACT_APP_MONGODB_URL
-              value: "mongodb://mongodb-service:27017/yolomy"
