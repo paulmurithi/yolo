@@ -15,16 +15,16 @@ spec:
     spec:
       containers:
         - name: backend
-          image: paulmuri/yolo-backend:v1.0.0
+          image: paulmuri/yolo-backend:v1.0.1
           ports:
             - containerPort: 5000
           env:
             - name: DB_USER
               value: root
             - name: DB_NAME
-              value: yolo
+              value: yolomy
             - name: DB_HOST
-              value: mongo
+              value: mongodb-service
             - name: DB_PORT
               value: '27017'
             - name: DB_PASSWORD
