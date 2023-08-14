@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: yolo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: backend
+  template:
+    metadata:
+      labels:
+        component: backend
+    spec:
+      containers:
+        - name: backend
+          image: paulmuri/yolo-backend:v1.0.0
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_USER
+              value: root
+            - name: DB_NAME
+              value: yolo
+            - name: DB_HOST
+              value: mongo
+            - name: DB_PORT
+              value: '27017'
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dbpassword
+                  key: DBPASSWORD
