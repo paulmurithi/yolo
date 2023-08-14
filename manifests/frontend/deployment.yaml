@@ -2,22 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
-  namespace: yolo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: frontend
+      app: frontend
   template:
     metadata:
       labels:
-        component: frontend
+        app: frontend
     spec:
       containers:
         - name: frontend
           image: paulmuri/yolo-frontend:v1.0.1
           ports:
-            - containerPort: 3000
+            - containerPort: 80  # Expose the container port 80
           env:
             - name: REACT_APP_API_URL
               value: "http://backend-service:80/api/products"

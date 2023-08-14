@@ -2,16 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
-  namespace: yolo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: backend
+      app: backend
   template:
     metadata:
       labels:
-        component: backend
+        app: backend
     spec:
       containers:
         - name: backend
