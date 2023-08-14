@@ -24,9 +24,9 @@ services:
   backend:
     build: ./backend
     container_name: backend
-    image: paulmuri/yolo-backend:v1.0.0
+    image: paulmuri/yolo-backend:v1.0.1
     ports:
-      - 5001:5001
+      - 5000:5000
     depends_on:
       - mongo
       - mongo-express
@@ -34,7 +34,7 @@ services:
   frontend:
     build: ./client
     container_name: frontend
-    image: paulmuri/yolo-frontend:v1.0.0
+    image: paulmuri/yolo-frontend:v1.0.1
     ports:
       - 3000:3000
     volumes:

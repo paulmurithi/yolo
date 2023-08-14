@@ -16,22 +16,22 @@ spec:
     spec:
       containers:
         - name: mongodb
-          image: mongodb
+          image: mongodb:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 27017
           volumeMounts:
             - name: mongodb-storage
               mountPath: '/data/db'
-          env:
-            - name: 'MONGO_INITDB_ROOT_USERNAME'
-              value: paul
-
-            - name: 'MONGO_INITDB_ROOT_PASSWORD'
-              valueFrom:
-                secretKeyRef:
-                  name: dbpassword
-                  key: DBPASSWORD
+#          env:
+#            - name: 'MONGO_INITDB_ROOT_USERNAME'
+#              value: paul
+#
+#            - name: 'MONGO_INITDB_ROOT_PASSWORD'
+#              valueFrom:
+#                secretKeyRef:
+#                  name: dbpassword
+#                  key: DBPASSWORD
       volumes:
         - name: mongodb-storage
           persistentVolumeClaim:
