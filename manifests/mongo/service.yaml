@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongo
+  name: mongodb
   namespace: yolo
   labels:
-    app: mongo
+    app: mongodb
 spec:
   selector:
-    app: mongo
+    app: mongodb
   ports:
-    - name: mongo
+    - name: mongodb
       port: 27017
       targetPort: 27017
   clusterIP: None
